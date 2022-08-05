@@ -5,10 +5,10 @@ using System.IO;
 
 namespace Factory.Models
 {
-  public class FactoryContextFactory : IDesignTimeDbContextFactory<ToDoListContext>
+  public class FactoryContextFactory : IDesignTimeDbContextFactory<FactoryContext>
   {
 
-    ToDoListContext IDesignTimeDbContextFactory<FactoryContext>.CreateDbContext(string[] args)
+    FactoryContext IDesignTimeDbContextFactory<FactoryContext>.CreateDbContext(string[] args)
     {
       IConfigurationRoot configuration = new ConfigurationBuilder()
           .SetBasePath(Directory.GetCurrentDirectory())
@@ -19,7 +19,7 @@ namespace Factory.Models
 
       builder.UseMySql(configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(configuration["ConnectionStrings:DefaultConnection"]));
 
-      return new ToDoListContext(builder.Options);
+      return new FactoryContext(builder.Options);
     }
   }
 }
