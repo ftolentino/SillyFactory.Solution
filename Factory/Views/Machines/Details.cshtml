@@ -20,20 +20,14 @@
     @foreach(var join in Model.JoinEntities)
     {
       <li>@join.Engineer.Name</li>
+      @using (Html.BeginForm("DeleteEngineer", "Machine"))
+        {
+          @Html.Hidden("joinId", @join.EngineerMachineId)
+          <input type="submit" value="Delete" class=" btn btn-danger" />
+        }
     }
     </ul>
   }
-
-  <ul>
-  @foreach(var join in Model.JoinEntities)
-  {
-    @using (Html.BeginForm("DeleteEngineer", "Machine"))
-        {
-          @Html.Hidden("joinId", @join.EngineerMachineId)
-          <input type="submit" value="Delete"/>
-        }
-  }
-  </ul>
 
   <p>@Html.ActionLink("Add a Engineer", "AddEngineer", new { id = Model.MachineId })</p>
 
