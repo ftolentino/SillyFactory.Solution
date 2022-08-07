@@ -35,16 +35,6 @@ namespace Factory.Controllers
       }
       return RedirectToAction("Index");
     }
-
-    public ActionResult Details(int id)
-    {
-      var thisEngineerMachine = _db.EngineerMachine.FirstOrDefault(e => e.EngineerMachineId == id);
-      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == thisEngineerMachine.EngineerId);
-      var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == thisEngineerMachine.MachineId);
-      
-      (EngineerMachine engineermachine, Engineer engineer, Machine machine) model = (thisEngineerMachine, thisEngineer, thisMachine);
-      return View(model);
-    }
   }
 }
 

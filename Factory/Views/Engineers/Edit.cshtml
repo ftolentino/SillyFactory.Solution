@@ -5,18 +5,21 @@
 @model Factory.Models.Engineer
 
 <div class="container">
-  <h2>Edit</h2>
+  <h4 class="text-center my-4">Edit this Engineer: @Html.DisplayFor(model => model.Name)</h4>
+  <div class="d-flex flex-row justify-content-center m-2">
 
-  <h4>Edit this Engineer: @Html.DisplayFor(model => model.Name)</h4>
 
-  @using (Html.BeginForm())
-  {
-    @Html.HiddenFor(model => model.EngineerId)
+    @using (Html.BeginForm())
+    {
+      @Html.HiddenFor(model => model.EngineerId)
 
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
+      @Html.LabelFor(model => model.Name, null, new { @class ="mx-2"})
+      @Html.EditorFor(model => model.Name, null, new { @class ="mx-2"})
 
-    <input type="submit" value="Save" />
-  }
-  <p>@Html.ActionLink("Back to Engineers", "Index")</p>
+      <input type="submit" value="Save" class="btn btn-primary mx-2"/>
+    }
+  </div>
+  <div class="d-flex flex-row justify-content-center">
+    <p>@Html.ActionLink("Back to Engineers", "Index")</p>
+  </div>
 </div>

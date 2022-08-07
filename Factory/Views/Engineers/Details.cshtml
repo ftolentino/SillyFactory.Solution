@@ -5,26 +5,29 @@
 @model Factory.Models.Engineer
 
 <div class="container">
-  <h2>Engineer Details</h2>
+  <h2 class="text-center my-4">Engineer Details</h2>
   <hr />
-  <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
-
-  @if(@Model.JoinEntities.Count == 0)
-  {
-    <p>This engineer does not contain any machines licensed to repair</p>
-  }
-  else
-  {
-    <h4>Engineers licensed to repaire these machines:</h4>
-    <ul>
-    @foreach(var join in Model.JoinEntities)
+  <div class="d-flex flex-column align-items-center">
+    <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+    @if(@Model.JoinEntities.Count == 0)
     {
-      <li>@join.Machine.Description</li>
+      <p>This engineer does not contain any machines licensed to repair</p>
     }
-    </ul>
-  }
-
-  <p>@Html.ActionLink("Back to engineers", "Index")</p>
-  <p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
-  <p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
+    else
+    {
+      <h4 class="mb-4">@Model.Name is licensed to repair these machines:</h4>
+      <ul>
+      @foreach(var join in Model.JoinEntities)
+      {
+        <li>@join.Machine.Description</li>
+      }
+      </ul>
+    }
+  </div>
+  <div class="d-flex flex-row justify-content-center">
+    <p class="mx-2">@Html.ActionLink("Back to engineers", "Index")</p>
+    <p class="mx-2">@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
+    <p class="mx-2">@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
+  </div>
+  <hr />
 </div>
