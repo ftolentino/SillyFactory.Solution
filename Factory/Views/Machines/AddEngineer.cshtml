@@ -5,19 +5,19 @@
 @model Factory.Models.Machine
 
 <div class="container">
-  <h2>Add a engineer</h2>
+  <h4 class="text-center my-4">Add a engineer to this machine: @Html.DisplayFor(model => model.Description)</h4>
+  <div class="d-flex flex-row justify-content-center m-2">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.MachineId)
 
-  <h4>Add a engineer to this machine: @Html.DisplayFor(model => model.Description)</h4>
+        @Html.Label("Select engineer", null, new { @class ="mx-1"})
+        @Html.DropDownList("EngineerId", null, new { @class ="mx-1"})
 
-  @using (Html.BeginForm())
-  {
-      @Html.HiddenFor(model => model.MachineId)
-
-      @Html.Label("Select engineer")
-      @Html.DropDownList("EngineerId")
-
-      <input type="submit" value="Save" />
-  }
-
-  <p>@Html.ActionLink("Back to machines list", "Index")</p>
+        <input type="submit" value="Save" class="btn btn-primary mx-2" />
+    }
+  </div>
+  <div class="d-flex flex-row justify-content-center mt-4">
+    <p>@Html.ActionLink("Back to machines list", "Index")</p>
+  </div>
 </div>

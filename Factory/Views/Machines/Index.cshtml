@@ -5,18 +5,24 @@
 @using Factory.Models;
 @model List<Factory.Models.Machine>;
 
-<div class="container">
-  <h1>Machines</h1>
+<div class="container my-4">
+  <h1 class="text-center">Machines</h1>
+  <hr />
+  <div class="d-flex flex-column align-items-center my-4">
+    <div class="d-flex flex-column align-items-start">
+      @if (@Model.Count == 0)
+      {
+        <h3>No machines have been added yet!</h3>
+      } 
 
-  @if (@Model.Count == 0)
-  {
-    <h3>No machines have been added yet!</h3>
-  } 
-
-  @foreach (Machine machine in Model)
-  {
-    <li>@Html.ActionLink($"{machine.Description}", "Details", new { id = machine.MachineId })</li>
-  }
-
-  <p>@Html.ActionLink("Add new machine", "Create")</p>
+      @foreach (Machine machine in Model)
+      {
+        <li>@Html.ActionLink($"{machine.Description}", "Details", new { id = machine.MachineId })</li>
+      }
+    </div>
+  </div>
+  <div class="d-flex flex-row justify-content-center my-4">
+    <p>@Html.ActionLink("Add new machine", "Create")</p>
+  </div>
+  <hr />
 </div>

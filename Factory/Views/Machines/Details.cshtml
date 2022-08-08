@@ -5,33 +5,40 @@
 @model Factory.Models.Machine
 
 <div class="container">
-  <h2>Machine Details</h2>
+  <h2 class="text-center my-4">Machine Details</h2>
   <hr />
-  <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
+  <div class="d-flex flex-column align-items-center">
+    <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
 
-  @if(@Model.JoinEntities.Count == 0)
-  {
-    <p>This machine is not licensed to repair by any engineers</p>
-  }
-  else
-  {
-    <h4>Engineers the machine is licensed to repair:</h4>
-    <ul>
-    @foreach(var join in Model.JoinEntities)
+    @if(@Model.JoinEntities.Count == 0)
     {
-      <li>@join.Engineer.Name</li>
-      @using (Html.BeginForm("DeleteEngineer", "Machines"))
-        {
-          @Html.Hidden("joinId", @join.EngineerMachineId)
-          <input type="submit" value="Delete" class=" btn btn-danger" />
-        }
+      <p>This machine is not licensed to repair by any engineers</p>
     }
-    </ul>
-  }
-
+    else
+    {
+      <h4 class="text-center">Engineers this machine is licensed to repair:</h4>
+      <ul>
+        <hr />
+        @foreach(var join in Model.JoinEntities)
+        {
+          <div class="d-flex flex-row justify-content-center">
+            <li class="my-3"><strong>@join.Engineer.Name</strong></li>
+            @using (Html.BeginForm("DeleteEngineer", "Machines"))
+              {
+                @Html.Hidden("joinId", @join.EngineerMachineId)
+                <input type="submit" value="Delete" class="btn btn-danger mx-4" />
+              }
+          </div>
+        <hr />
+        }
+      </ul>
+    }
   <p>@Html.ActionLink("Add a Engineer", "AddEngineer", new { id = Model.MachineId })</p>
-
-  <p>@Html.ActionLink("Back to list", "Index")</p>
-  <p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</p>
-  <p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
+  </div>
+  <hr />
+  <div class="d-flex flex-row justify-content-center">
+    <p class="mx-2">@Html.ActionLink("Back to list", "Index")</p>
+    <p class="mx-2">@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</p>
+    <p class="mx-2">@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
+  </div>
 </div>
