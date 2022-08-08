@@ -17,9 +17,18 @@
     {
       <h4 class="mb-4">@Model.Name is licensed to repair these machines:</h4>
       <ul>
+      <hr />
       @foreach(var join in Model.JoinEntities)
       {
-        <li>@join.Machine.Description</li>
+        <div class="d-flex flex-row justify-content-end">
+          <li class="my-2">@join.Machine.Description</li>
+          @using (Html.BeginForm("DeleteMachine", "Engineers"))
+            {
+              @Html.Hidden("joinId", @join.EngineerMachineId)
+              <input type="submit" value="Delete" class="btn btn-danger mx-4" />
+            }
+        </div>
+        <hr />
       }
       </ul>
     }

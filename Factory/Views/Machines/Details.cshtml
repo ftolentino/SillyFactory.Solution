@@ -21,8 +21,8 @@
         <hr />
         @foreach(var join in Model.JoinEntities)
         {
-          <div class="d-flex flex-row justify-content-center">
-            <li class="my-3"><strong>@join.Engineer.Name</strong></li>
+          <div class="d-flex flex-row justify-content-end">
+            <li class="my-2"><strong>@join.Engineer.Name</strong></li>
             @using (Html.BeginForm("DeleteEngineer", "Machines"))
               {
                 @Html.Hidden("joinId", @join.EngineerMachineId)
