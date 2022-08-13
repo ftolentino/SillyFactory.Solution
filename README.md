@@ -41,11 +41,11 @@ This Setup assumes you have GitBash and MySQL Workbench pre-installed.
 <details>
 <summary><strong>Initial Setup</strong></summary>
 <ol>
-<li>Copy the git repository url: https://github.com/GarrettHays/Sillystringz.Solution
+<li>Copy the git repository url: https://github.com/ftolentino/SillyFactory.Solution
 <li>Open a terminal and navigate to your Desktop with <strong>cd</strong> command
 <li>Run,   
-<strong>$ git clone https://github.com/GarrettHays/Sillystringz.Solution</strong>
-<li>In the terminal, navigate into the root directory of the cloned project folder "Sillystringz.Solution".
+<strong>$ git clone https://github.com/ftolentino/SillyFactory.Solution</strong>
+<li>In the terminal, navigate into the root directory of the cloned project folder "SillyFactory.Solution".
 <li>Navigate to the projects root directory, "Factory".
 <li>Move onto "SQL Workbench Configuration" instructions below to build the necessary database.
 <br>
