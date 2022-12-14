@@ -71,7 +71,6 @@ This Setup assumes you have GitBash and MySQL Workbench pre-installed.
 
 <li>In root directory of project folder "Factory", run  
 <strong>$ dotnet ef migrations add restoreDatabase</strong>
-<strong>$ dotnet ef migrations update</strong>
 <li>Then run <strong>$ dotnet ef database update</strong>
 
 <ol> 
