@@ -75,7 +75,7 @@ This Setup assumes you have GitBash and MySQL Workbench pre-installed.
 
 <ol> 
   <li>Open SQL Workbench.
-  <li>Navigate to "garrett_hays" schema.
+  <li>Navigate to "filmer_tolentino" schema.
   <li>Click the drop down, select "Tables" drop down.
   <li>Verify the tables, you should see <strong>engineers</strong>, <strong>machines</strong>, & <strong>engineermachine</strong>.
   
